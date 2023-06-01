@@ -344,7 +344,12 @@ cJSON *{{classname}}_convertToJSON({{classname}}_t *{{classname}}) {
     {{/required}}
     {{^required}}
     {{^isEnum}}
+    {{#isString}}
     if({{{classname}}}->{{{name}}}) {
+    {{/isString}}
+    {{^isString}}
+    if(1) {     // always send boolean and numbers
+    {{/isString}}
     {{/isEnum}}
     {{#isEnum}}
     if({{{classname}}}->{{{name}}} != {{projectName}}_{{classVarName}}_{{enumName}}_NULL) {
