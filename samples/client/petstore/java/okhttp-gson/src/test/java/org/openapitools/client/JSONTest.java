@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -112,7 +113,7 @@ public class JSONTest {
             // OK
         }
         try {
-            // unexpected miliseconds
+            // unexpected milliseconds
             json.deserialize("\"2015-11-07T03:49:09.000Z\"", Date.class);
             fail("json parsing should fail");
         } catch (RuntimeException e) {
@@ -429,7 +430,7 @@ public class JSONTest {
             Exception exception = assertThrows(com.google.gson.JsonSyntaxException.class, () -> {
                 Mammal o = json.getGson().fromJson(str, Mammal.class);
             });
-            assertTrue(exception.getMessage().contains("Failed deserialization for Mammal: 0 classes match result, expected 1. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}"));
+            assertEquals("java.io.IOException: Failed deserialization for Mammal: 0 classes match result, expected 1. Detailed failure message for oneOf schemas: [Deserialization for Pig failed with `The JSON string is invalid for Pig with oneOf schemas: BasquePig, DanishPig. 0 class(es) match the result, expected 1. Detailed failure message for oneOf schemas: [Deserialization for BasquePig failed with `The required field `className` is not found in the JSON string: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`., Deserialization for DanishPig failed with `The required field `className` is not found in the JSON string: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`.]. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`., Deserialization for Whale failed with `The required field `className` is not found in the JSON string: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`., Deserialization for Zebra failed with `The required field `className` is not found in the JSON string: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`.]. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}", exception.getMessage());
         }
         {
             // Try to deserialize empty object. This should fail 'oneOf' because none will match
@@ -438,8 +439,26 @@ public class JSONTest {
             Exception exception = assertThrows(com.google.gson.JsonSyntaxException.class, () -> {
                 json.getGson().fromJson(str, Mammal.class);
             });
-            assertTrue(exception.getMessage().contains("Failed deserialization for Mammal: 0 classes match result, expected 1"));
+            assertEquals("java.io.IOException: Failed deserialization for Mammal: 0 classes match result, expected 1. Detailed failure message for oneOf schemas: [Deserialization for Pig failed with `The JSON string is invalid for Pig with oneOf schemas: BasquePig, DanishPig. 0 class(es) match the result, expected 1. Detailed failure message for oneOf schemas: [Deserialization for BasquePig failed with `The required field `className` is not found in the JSON string: {}`., Deserialization for DanishPig failed with `The required field `className` is not found in the JSON string: {}`.]. JSON: {}`., Deserialization for Whale failed with `The required field `className` is not found in the JSON string: {}`., Deserialization for Zebra failed with `The required field `className` is not found in the JSON string: {}`.]. JSON: {}", exception.getMessage());
         }
+    }
+
+    /**
+     * Test JSON validation method
+     */
+    @Test
+    public void testJsonValidation() throws Exception {
+        String str = "{ \"cultivar\": [\"golden delicious\"], \"mealy\": false }";
+        Exception exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            AppleReq a = json.getGson().fromJson(str, AppleReq.class);
+        });
+        assertTrue(exception.getMessage().contains("Expected the field `cultivar` to be a primitive type in the JSON string but got `[\"golden delicious\"]`"));
+
+        String str2 = "{ \"id\": 5847, \"name\":\"pet test 1\", \"photoUrls\": 123 }";
+        Exception exception2 = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Pet p1 = json.getGson().fromJson(str2, Pet.class);
+        });
+        assertTrue(exception2.getMessage().contains("Expected the field `photoUrls` to be an array in the JSON string but got `123`"));
     }
 
     /**
@@ -499,7 +518,7 @@ public class JSONTest {
             Exception exception = assertThrows(com.google.gson.JsonSyntaxException.class, () -> {
                 FruitReq o = json.getGson().fromJson(str, FruitReq.class);
             });
-            assertTrue(exception.getMessage().contains("Failed deserialization for FruitReq: 0 classes match result, expected 1. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}"));
+            assertEquals("java.io.IOException: Failed deserialization for FruitReq: 0 classes match result, expected 1. Detailed failure message for oneOf schemas: [Deserialization for AppleReq failed with `The field `garbage_prop` in the JSON string is not defined in the `AppleReq` properties. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`., Deserialization for BananaReq failed with `The field `cultivar` in the JSON string is not defined in the `BananaReq` properties. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}`.]. JSON: {\"cultivar\":\"golden delicious\",\"mealy\":false,\"garbage_prop\":\"abc\"}", exception.getMessage());
         }
         {
             String str = "{ \"lengthCm\": 17 }";
@@ -524,6 +543,19 @@ public class JSONTest {
             });
             assertTrue(exception.getMessage().contains("Failed deserialization for FruitReq: 0 classes match result, expected 1"));
         }
+    }
+
+
+    /**
+     * Test validateJsonObject with null object
+     */
+    @Test
+    public void testValidateJsonObject() throws Exception {
+        JsonObject jsonObject = new JsonObject();
+        Exception exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Pet.validateJsonObject(jsonObject);
+        });
+        assertEquals(exception.getMessage(), "The required field `photoUrls` is not found in the JSON string: {}");
     }
 
     /**

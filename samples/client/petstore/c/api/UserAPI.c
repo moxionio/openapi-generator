@@ -52,6 +52,10 @@ UserAPI_createUser(apiClient_t *apiClient, user_t * body )
                     localVarBodyParameters,
                     "POST");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 0) {
+    //    printf("%s\n","successful operation");
+    //}
     //No return type
 end:
     if (apiClient->dataReceived) {
@@ -131,6 +135,10 @@ UserAPI_createUsersWithArrayInput(apiClient_t *apiClient, list_t * body )
                     localVarBodyParameters,
                     "POST");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 0) {
+    //    printf("%s\n","successful operation");
+    //}
     //No return type
 end:
     if (apiClient->dataReceived) {
@@ -218,6 +226,10 @@ UserAPI_createUsersWithListInput(apiClient_t *apiClient, list_t * body )
                     localVarBodyParameters,
                     "POST");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 0) {
+    //    printf("%s\n","successful operation");
+    //}
     //No return type
 end:
     if (apiClient->dataReceived) {
@@ -288,6 +300,14 @@ UserAPI_deleteUser(apiClient_t *apiClient, char * username )
                     localVarBodyParameters,
                     "DELETE");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 400) {
+    //    printf("%s\n","Invalid username supplied");
+    //}
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 404) {
+    //    printf("%s\n","User not found");
+    //}
     //No return type
 end:
     if (apiClient->dataReceived) {
@@ -346,6 +366,18 @@ UserAPI_getUserByName(apiClient_t *apiClient, char * username )
                     localVarBodyParameters,
                     "GET");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 200) {
+    //    printf("%s\n","successful operation");
+    //}
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 400) {
+    //    printf("%s\n","Invalid username supplied");
+    //}
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 404) {
+    //    printf("%s\n","User not found");
+    //}
     //nonprimitive not container
     cJSON *UserAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
     user_t *elementToReturn = user_parseFromJSON(UserAPIlocalVarJSON);
@@ -429,6 +461,14 @@ UserAPI_loginUser(apiClient_t *apiClient, char * username , char * password )
                     localVarBodyParameters,
                     "GET");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 200) {
+    //    printf("%s\n","successful operation");
+    //}
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 400) {
+    //    printf("%s\n","Invalid username/password supplied");
+    //}
     //primitive return type simple
     char* elementToReturn =  strdup((char*)apiClient->dataReceived);
 
@@ -503,6 +543,10 @@ UserAPI_logoutUser(apiClient_t *apiClient)
                     localVarBodyParameters,
                     "GET");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 0) {
+    //    printf("%s\n","successful operation");
+    //}
     //No return type
 end:
     if (apiClient->dataReceived) {
@@ -511,6 +555,83 @@ end:
         apiClient->dataReceivedLen = 0;
     }
     
+    
+    
+    
+    
+    free(localVarPath);
+
+}
+
+// test integer and boolean query parameters in API
+//
+// This can test integer and boolean query parameters in API.
+//
+void
+UserAPI_testIntAndBool(apiClient_t *apiClient, int keep , int keepDay )
+{
+    list_t    *localVarQueryParameters = list_createList();
+    list_t    *localVarHeaderParameters = NULL;
+    list_t    *localVarFormParameters = NULL;
+    list_t *localVarHeaderType = NULL;
+    list_t *localVarContentType = NULL;
+    char      *localVarBodyParameters = NULL;
+
+    // create the path
+    long sizeOfPath = strlen("/user/testIntAndBool")+1;
+    char *localVarPath = malloc(sizeOfPath);
+    snprintf(localVarPath, sizeOfPath, "/user/testIntAndBool");
+
+
+
+
+    // query parameters
+    char *keyQuery_keep = NULL;
+    char * valueQuery_keep = NULL;
+    keyValuePair_t *keyPairQuery_keep = 0;
+    if (1) // Always send boolean parameters to the API server
+    {
+        keyQuery_keep = strdup("keep");
+        valueQuery_keep = calloc(1,MAX_NUMBER_LENGTH);
+        snprintf(valueQuery_keep, MAX_NUMBER_LENGTH, "%d", keep);
+        keyPairQuery_keep = keyValuePair_create(keyQuery_keep, valueQuery_keep);
+        list_addElement(localVarQueryParameters,keyPairQuery_keep);
+    }
+
+    // query parameters
+    char *keyQuery_keepDay = NULL;
+    char * valueQuery_keepDay = NULL;
+    keyValuePair_t *keyPairQuery_keepDay = 0;
+    if (1) // Always send integer parameters to the API server
+    {
+        keyQuery_keepDay = strdup("keepDay");
+        valueQuery_keepDay = calloc(1,MAX_NUMBER_LENGTH);
+        snprintf(valueQuery_keepDay, MAX_NUMBER_LENGTH, "%d", keepDay);
+        keyPairQuery_keepDay = keyValuePair_create(keyQuery_keepDay, valueQuery_keepDay);
+        list_addElement(localVarQueryParameters,keyPairQuery_keepDay);
+    }
+    apiClient_invoke(apiClient,
+                    localVarPath,
+                    localVarQueryParameters,
+                    localVarHeaderParameters,
+                    localVarFormParameters,
+                    localVarHeaderType,
+                    localVarContentType,
+                    localVarBodyParameters,
+                    "GET");
+
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 200) {
+    //    printf("%s\n","successful operation");
+    //}
+    //No return type
+end:
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
+    }
+    list_freeList(localVarQueryParameters);
     
     
     
@@ -569,6 +690,14 @@ UserAPI_updateUser(apiClient_t *apiClient, char * username , user_t * body )
                     localVarBodyParameters,
                     "PUT");
 
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 400) {
+    //    printf("%s\n","Invalid user supplied");
+    //}
+    // uncomment below to debug the error response
+    //if (apiClient->response_code == 404) {
+    //    printf("%s\n","User not found");
+    //}
     //No return type
 end:
     if (apiClient->dataReceived) {

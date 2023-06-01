@@ -268,21 +268,21 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
         /// <param name="password">None (optional)</param>
         /// <param name="callback">None (optional)</param>
         /// <returns></returns>
-        void TestEndpointParameters (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string));
+        void TestEndpointParameters (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string));
 
         /// <summary>
         /// Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
@@ -292,21 +292,21 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
         /// <param name="password">None (optional)</param>
         /// <param name="callback">None (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TestEndpointParametersWithHttpInfo (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string));
+        ApiResponse<Object> TestEndpointParametersWithHttpInfo (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string));
         /// <summary>
         /// To test enum parameters
         /// </summary>
@@ -320,10 +320,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <returns></returns>
-        void TestEnumParameters (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string));
+        void TestEnumParameters (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string));
 
         /// <summary>
         /// To test enum parameters
@@ -338,10 +339,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TestEnumParametersWithHttpInfo (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string));
+        ApiResponse<Object> TestEnumParametersWithHttpInfo (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string));
         /// <summary>
         /// Fake endpoint to test group parameters (optional)
         /// </summary>
@@ -717,14 +719,14 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
@@ -732,7 +734,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">None (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TestEndpointParametersAsync (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task TestEndpointParametersAsync (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
@@ -742,14 +744,14 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
@@ -757,7 +759,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">None (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TestEndpointParametersWithHttpInfoAsync (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TestEndpointParametersWithHttpInfoAsync (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// To test enum parameters
         /// </summary>
@@ -771,11 +773,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TestEnumParametersAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task TestEnumParametersAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// To test enum parameters
@@ -790,11 +793,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TestEnumParametersWithHttpInfoAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TestEnumParametersWithHttpInfoAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Fake endpoint to test group parameters (optional)
         /// </summary>
@@ -2648,23 +2652,23 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
         /// <param name="password">None (optional)</param>
         /// <param name="callback">None (optional)</param>
         /// <returns></returns>
-        public void TestEndpointParameters (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string))
+        public void TestEndpointParameters (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string))
         {
-             TestEndpointParametersWithHttpInfo(number, _double, patternWithoutDelimiter, _byte, integer, int32, int64, _float, _string, binary, date, dateTime, password, callback);
+             TestEndpointParametersWithHttpInfo(number, varDouble, patternWithoutDelimiter, varByte, integer, int32, int64, varFloat, varString, binary, date, dateTime, password, callback);
         }
 
         /// <summary>
@@ -2672,34 +2676,34 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
         /// <param name="password">None (optional)</param>
         /// <param name="callback">None (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> TestEndpointParametersWithHttpInfo (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string))
+        public ApiResponse<Object> TestEndpointParametersWithHttpInfo (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string))
         {
             // verify the required parameter 'number' is set
             if (number == null)
                 throw new ApiException(400, "Missing required parameter 'number' when calling FakeApi->TestEndpointParameters");
-            // verify the required parameter '_double' is set
-            if (_double == null)
-                throw new ApiException(400, "Missing required parameter '_double' when calling FakeApi->TestEndpointParameters");
+            // verify the required parameter 'varDouble' is set
+            if (varDouble == null)
+                throw new ApiException(400, "Missing required parameter 'varDouble' when calling FakeApi->TestEndpointParameters");
             // verify the required parameter 'patternWithoutDelimiter' is set
             if (patternWithoutDelimiter == null)
                 throw new ApiException(400, "Missing required parameter 'patternWithoutDelimiter' when calling FakeApi->TestEndpointParameters");
-            // verify the required parameter '_byte' is set
-            if (_byte == null)
-                throw new ApiException(400, "Missing required parameter '_byte' when calling FakeApi->TestEndpointParameters");
+            // verify the required parameter 'varByte' is set
+            if (varByte == null)
+                throw new ApiException(400, "Missing required parameter 'varByte' when calling FakeApi->TestEndpointParameters");
 
             var localVarPath = "/fake";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2726,11 +2730,11 @@ namespace Org.OpenAPITools.Api
             if (int32 != null) localVarFormParams.Add("int32", this.Configuration.ApiClient.ParameterToString(int32)); // form parameter
             if (int64 != null) localVarFormParams.Add("int64", this.Configuration.ApiClient.ParameterToString(int64)); // form parameter
             if (number != null) localVarFormParams.Add("number", this.Configuration.ApiClient.ParameterToString(number)); // form parameter
-            if (_float != null) localVarFormParams.Add("float", this.Configuration.ApiClient.ParameterToString(_float)); // form parameter
-            if (_double != null) localVarFormParams.Add("double", this.Configuration.ApiClient.ParameterToString(_double)); // form parameter
-            if (_string != null) localVarFormParams.Add("string", this.Configuration.ApiClient.ParameterToString(_string)); // form parameter
+            if (varFloat != null) localVarFormParams.Add("float", this.Configuration.ApiClient.ParameterToString(varFloat)); // form parameter
+            if (varDouble != null) localVarFormParams.Add("double", this.Configuration.ApiClient.ParameterToString(varDouble)); // form parameter
+            if (varString != null) localVarFormParams.Add("string", this.Configuration.ApiClient.ParameterToString(varString)); // form parameter
             if (patternWithoutDelimiter != null) localVarFormParams.Add("pattern_without_delimiter", this.Configuration.ApiClient.ParameterToString(patternWithoutDelimiter)); // form parameter
-            if (_byte != null) localVarFormParams.Add("byte", this.Configuration.ApiClient.ParameterToString(_byte)); // form parameter
+            if (varByte != null) localVarFormParams.Add("byte", this.Configuration.ApiClient.ParameterToString(varByte)); // form parameter
             if (binary != null) localVarFileParams.Add("binary", this.Configuration.ApiClient.ParameterToFile("binary", binary));
             if (date != null) localVarFormParams.Add("date", this.Configuration.ApiClient.ParameterToString(date)); // form parameter
             if (dateTime != null) localVarFormParams.Add("dateTime", this.Configuration.ApiClient.ParameterToString(dateTime)); // form parameter
@@ -2767,14 +2771,14 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
@@ -2782,9 +2786,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">None (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TestEndpointParametersAsync (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task TestEndpointParametersAsync (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await TestEndpointParametersWithHttpInfoAsync(number, _double, patternWithoutDelimiter, _byte, integer, int32, int64, _float, _string, binary, date, dateTime, password, callback, cancellationToken);
+             await TestEndpointParametersWithHttpInfoAsync(number, varDouble, patternWithoutDelimiter, varByte, integer, int32, int64, varFloat, varString, binary, date, dateTime, password, callback, cancellationToken);
 
         }
 
@@ -2793,14 +2797,14 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">None</param>
-        /// <param name="_double">None</param>
+        /// <param name="varDouble">None</param>
         /// <param name="patternWithoutDelimiter">None</param>
-        /// <param name="_byte">None</param>
+        /// <param name="varByte">None</param>
         /// <param name="integer">None (optional)</param>
         /// <param name="int32">None (optional)</param>
         /// <param name="int64">None (optional)</param>
-        /// <param name="_float">None (optional)</param>
-        /// <param name="_string">None (optional)</param>
+        /// <param name="varFloat">None (optional)</param>
+        /// <param name="varString">None (optional)</param>
         /// <param name="binary">None (optional)</param>
         /// <param name="date">None (optional)</param>
         /// <param name="dateTime">None (optional)</param>
@@ -2808,20 +2812,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">None (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> TestEndpointParametersWithHttpInfoAsync (decimal number, double _double, string patternWithoutDelimiter, byte[] _byte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? _float = default(float?), string _string = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> TestEndpointParametersWithHttpInfoAsync (decimal number, double varDouble, string patternWithoutDelimiter, byte[] varByte, int? integer = default(int?), int? int32 = default(int?), long? int64 = default(long?), float? varFloat = default(float?), string varString = default(string), System.IO.Stream binary = default(System.IO.Stream), DateTime? date = default(DateTime?), DateTime? dateTime = default(DateTime?), string password = default(string), string callback = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'number' is set
             if (number == null)
                 throw new ApiException(400, "Missing required parameter 'number' when calling FakeApi->TestEndpointParameters");
-            // verify the required parameter '_double' is set
-            if (_double == null)
-                throw new ApiException(400, "Missing required parameter '_double' when calling FakeApi->TestEndpointParameters");
+            // verify the required parameter 'varDouble' is set
+            if (varDouble == null)
+                throw new ApiException(400, "Missing required parameter 'varDouble' when calling FakeApi->TestEndpointParameters");
             // verify the required parameter 'patternWithoutDelimiter' is set
             if (patternWithoutDelimiter == null)
                 throw new ApiException(400, "Missing required parameter 'patternWithoutDelimiter' when calling FakeApi->TestEndpointParameters");
-            // verify the required parameter '_byte' is set
-            if (_byte == null)
-                throw new ApiException(400, "Missing required parameter '_byte' when calling FakeApi->TestEndpointParameters");
+            // verify the required parameter 'varByte' is set
+            if (varByte == null)
+                throw new ApiException(400, "Missing required parameter 'varByte' when calling FakeApi->TestEndpointParameters");
 
             var localVarPath = "/fake";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2848,11 +2852,11 @@ namespace Org.OpenAPITools.Api
             if (int32 != null) localVarFormParams.Add("int32", this.Configuration.ApiClient.ParameterToString(int32)); // form parameter
             if (int64 != null) localVarFormParams.Add("int64", this.Configuration.ApiClient.ParameterToString(int64)); // form parameter
             if (number != null) localVarFormParams.Add("number", this.Configuration.ApiClient.ParameterToString(number)); // form parameter
-            if (_float != null) localVarFormParams.Add("float", this.Configuration.ApiClient.ParameterToString(_float)); // form parameter
-            if (_double != null) localVarFormParams.Add("double", this.Configuration.ApiClient.ParameterToString(_double)); // form parameter
-            if (_string != null) localVarFormParams.Add("string", this.Configuration.ApiClient.ParameterToString(_string)); // form parameter
+            if (varFloat != null) localVarFormParams.Add("float", this.Configuration.ApiClient.ParameterToString(varFloat)); // form parameter
+            if (varDouble != null) localVarFormParams.Add("double", this.Configuration.ApiClient.ParameterToString(varDouble)); // form parameter
+            if (varString != null) localVarFormParams.Add("string", this.Configuration.ApiClient.ParameterToString(varString)); // form parameter
             if (patternWithoutDelimiter != null) localVarFormParams.Add("pattern_without_delimiter", this.Configuration.ApiClient.ParameterToString(patternWithoutDelimiter)); // form parameter
-            if (_byte != null) localVarFormParams.Add("byte", this.Configuration.ApiClient.ParameterToString(_byte)); // form parameter
+            if (varByte != null) localVarFormParams.Add("byte", this.Configuration.ApiClient.ParameterToString(varByte)); // form parameter
             if (binary != null) localVarFileParams.Add("binary", this.Configuration.ApiClient.ParameterToFile("binary", binary));
             if (date != null) localVarFormParams.Add("date", this.Configuration.ApiClient.ParameterToString(date)); // form parameter
             if (dateTime != null) localVarFormParams.Add("dateTime", this.Configuration.ApiClient.ParameterToString(dateTime)); // form parameter
@@ -2894,12 +2898,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <returns></returns>
-        public void TestEnumParameters (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string))
+        public void TestEnumParameters (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string))
         {
-             TestEnumParametersWithHttpInfo(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumFormStringArray, enumFormString);
+             TestEnumParametersWithHttpInfo(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString);
         }
 
         /// <summary>
@@ -2912,10 +2917,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> TestEnumParametersWithHttpInfo (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string))
+        public ApiResponse<Object> TestEnumParametersWithHttpInfo (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string))
         {
 
             var localVarPath = "/fake";
@@ -2943,6 +2949,7 @@ namespace Org.OpenAPITools.Api
             if (enumQueryString != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "enum_query_string", enumQueryString)); // query parameter
             if (enumQueryInteger != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "enum_query_integer", enumQueryInteger)); // query parameter
             if (enumQueryDouble != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "enum_query_double", enumQueryDouble)); // query parameter
+            if (enumQueryModelArray != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "enum_query_model_array", enumQueryModelArray)); // query parameter
             if (enumHeaderStringArray != null) localVarHeaderParams.Add("enum_header_string_array", this.Configuration.ApiClient.ParameterToString(enumHeaderStringArray)); // header parameter
             if (enumHeaderString != null) localVarHeaderParams.Add("enum_header_string", this.Configuration.ApiClient.ParameterToString(enumHeaderString)); // header parameter
             if (enumFormStringArray != null) localVarFormParams.Add("enum_form_string_array", this.Configuration.ApiClient.Serialize(enumFormStringArray)); // form parameter
@@ -2977,13 +2984,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TestEnumParametersAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task TestEnumParametersAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await TestEnumParametersWithHttpInfoAsync(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumFormStringArray, enumFormString, cancellationToken);
+             await TestEnumParametersWithHttpInfoAsync(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString, cancellationToken);
 
         }
 
@@ -2997,11 +3005,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="enumQueryString">Query parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="enumQueryInteger">Query parameter enum test (double) (optional)</param>
         /// <param name="enumQueryDouble">Query parameter enum test (double) (optional)</param>
+        /// <param name="enumQueryModelArray"> (optional)</param>
         /// <param name="enumFormStringArray">Form parameter enum test (string array) (optional, default to $)</param>
         /// <param name="enumFormString">Form parameter enum test (string) (optional, default to -efg)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> TestEnumParametersWithHttpInfoAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> TestEnumParametersWithHttpInfoAsync (List<string> enumHeaderStringArray = default(List<string>), string enumHeaderString = default(string), List<string> enumQueryStringArray = default(List<string>), string enumQueryString = default(string), int? enumQueryInteger = default(int?), double? enumQueryDouble = default(double?), List<EnumClass> enumQueryModelArray = default(List<EnumClass>), List<string> enumFormStringArray = default(List<string>), string enumFormString = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/fake";
@@ -3029,6 +3038,7 @@ namespace Org.OpenAPITools.Api
             if (enumQueryString != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "enum_query_string", enumQueryString)); // query parameter
             if (enumQueryInteger != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "enum_query_integer", enumQueryInteger)); // query parameter
             if (enumQueryDouble != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "enum_query_double", enumQueryDouble)); // query parameter
+            if (enumQueryModelArray != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "enum_query_model_array", enumQueryModelArray)); // query parameter
             if (enumHeaderStringArray != null) localVarHeaderParams.Add("enum_header_string_array", this.Configuration.ApiClient.ParameterToString(enumHeaderStringArray)); // header parameter
             if (enumHeaderString != null) localVarHeaderParams.Add("enum_header_string", this.Configuration.ApiClient.ParameterToString(enumHeaderString)); // header parameter
             if (enumFormStringArray != null) localVarFormParams.Add("enum_form_string_array", this.Configuration.ApiClient.Serialize(enumFormStringArray)); // form parameter
