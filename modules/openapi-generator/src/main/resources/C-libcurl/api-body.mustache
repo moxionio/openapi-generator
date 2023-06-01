@@ -335,12 +335,10 @@ end:
                     localVarBodyParameters,
                     "{{{httpMethod}}}");
 
-    {{#responses}}
     // uncomment below to debug the error response
     //if (apiClient->response_code == {{code}}) {
     //    printf("%s\n","{{message}}");
     //}
-    {{/responses}}
     {{#returnType}}
     {{#returnTypeIsPrimitive}}
     {{#returnSimpleType}}
